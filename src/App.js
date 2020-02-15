@@ -62,7 +62,7 @@ function App() {
         </div>
       </header>
       <div id="images">
-        {postURLs.map(url => <InstagramPost url={url} />)}
+        {posts.map(post => <InstagramPost post={post} />)}
 
       </div>
     </div>
