@@ -17,8 +17,8 @@ export default class Loader extends Component {
     }
 
     render() {
-        let pics = ['B8h_UJkg5TA', 'BIrTU23h5mK', 'BHmfkOjAzOE', 'BJTcUUFA3aw', 'BHu9abagUVk'];
-        let perm_url = 'https://www.instagram.com/p/';
+        let pics = ['200', '200', '200', '200', '200'];
+        let perm_url = 'https://picsum.photos/';
         let urls = [];
 
         pics.map((pic, i) => {
