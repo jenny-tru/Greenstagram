@@ -1,1 +1,4 @@
 # Greenstagram
+
+## Team
+- Cassandra Wilcox
