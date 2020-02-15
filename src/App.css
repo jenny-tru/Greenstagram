@@ -39,14 +39,6 @@ body {
   z-index: 1;
 }
 
-.header-content {
-  /* position: fixed;
-  left: 5em;
-  width: 30%;
-   */
-
-}
-
 .wrapper {
   grid-area: 1 / 1;
   display: grid;
