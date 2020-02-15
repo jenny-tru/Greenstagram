@@ -1,31 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --color-primary: #2ea25e;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
 #header {
   display: grid;
   grid-column-start: 1;
   position: relative;
-  background-color: rgb(22, 206, 145);
-
+  background-color: var(--color-primary);
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -47,17 +34,21 @@
 }
 
 #images {
-background-color: rgb(22, 206, 145);
-display: grid;
-grid-column: 2 / 3;
-align-items: center;
-order: 2;
-  
+  background-color: white;
+  display: grid;
+  grid-column: 2 / 3;
+  align-items: center;
+  order: 2;
+  padding: 2rem;
+  box-shadow: -1rem 1px 2rem rgba(0,0,0,0.1);
+  z-index: 1;
 }
+
 .image {
   background-size: cover;
   height: 38em;
   width: 38em; 
-
+  margin: 1rem 0;
+  border-radius: 2rem;
 
 }

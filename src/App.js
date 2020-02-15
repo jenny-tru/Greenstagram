@@ -75,10 +75,10 @@ function App() {
           </ol>
         </div>
       </header>
-    <div id="images">
+      <div id="images">
         {postURLs.map(url => <InstagramPost url={url} />)}
 
-    </div>
+      </div>
     </div>
   );
 }
