@@ -8,7 +8,7 @@ class InstagramScraper {
     return JSON.parse(_sharedData);
   }
 
-  async fetchPostData(instagramSearchURL) {
+  async fetchPostURL(instagramSearchURL) {
     const res = await axios(instagramSearchURL);
     const sharedData = this.parseSharedDataFromHTML(res.data);
     // const hashtag = sharedData.entry_data.TagPage[0].graphql.hashtag.name;
@@ -17,6 +17,17 @@ class InstagramScraper {
     // console.log('posts', posts); // eslint-disable-line no-console
     // console.log('postURLs', postURLs); // eslint-disable-line no-console
     return postURLs;
+  }
+
+  async fetchPost(instagramSearchURL) {
+    const res = await axios(instagramSearchURL);
+    const sharedData = this.parseSharedDataFromHTML(res.data);
+    // const hashtag = sharedData.entry_data.TagPage[0].graphql.hashtag.name;
+    const posts = sharedData.entry_data.TagPage[0].graphql.hashtag.edge_hashtag_to_media.edges;
+    const postImages = posts.map(post => post.node.display_url);
+    console.log('posts', posts); // eslint-disable-line no-console
+    // console.log('postURLs', postURLs); // eslint-disable-line no-console
+    return postImages;
   }
 
 }
