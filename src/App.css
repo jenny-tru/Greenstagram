@@ -57,7 +57,9 @@ order: 2;
 .image {
   background-size: cover;
   height: 38em;
-  width: 38em; 
+  width: 38em;
+}
 
-
+li {
+  margin-bottom: 20px;
 }

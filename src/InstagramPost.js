@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { instagramScraper } from './instgramScraper.service';
-const axios = require('axios');
 
 InstagramPost.propTypes = {
-  url: PropTypes.string,
+  post: PropTypes.object,
 };
 
 export function InstagramPost(props) {
-  const { url } = props;
+  const { post } = props;
   return (
-    <div className="image" style={{backgroundImage:`url("${url}")`}}>
-      {/* <img src={url}/> */}
-    </div>
+    <a href={post.postUrl} target="_blank">
+      <div className="image" style={{ backgroundImage: `url("${post.imageUrl}")` }} />
+    </a>
   );
 }

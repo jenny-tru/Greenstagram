@@ -11,22 +11,21 @@ class InstagramScraper {
   async fetchPostURL(instagramSearchURL) {
     const res = await axios(instagramSearchURL);
     const sharedData = this.parseSharedDataFromHTML(res.data);
-    // const hashtag = sharedData.entry_data.TagPage[0].graphql.hashtag.name;
     const posts = sharedData.entry_data.TagPage[0].graphql.hashtag.edge_hashtag_to_media.edges;
     const postURLs = posts.map(post => `https://www.instagram.com/p/${post.node.shortcode}`);
-    // console.log('posts', posts); // eslint-disable-line no-console
-    // console.log('postURLs', postURLs); // eslint-disable-line no-console
     return postURLs;
   }
 
   async fetchPost(instagramSearchURL) {
     const res = await axios(instagramSearchURL);
     const sharedData = this.parseSharedDataFromHTML(res.data);
-    // const hashtag = sharedData.entry_data.TagPage[0].graphql.hashtag.name;
     const posts = sharedData.entry_data.TagPage[0].graphql.hashtag.edge_hashtag_to_media.edges;
-    const postImages = posts.map(post => post.node.display_url);
-    console.log('posts', posts); // eslint-disable-line no-console
-    // console.log('postURLs', postURLs); // eslint-disable-line no-console
+    const postImages = posts.map(post => {
+      return {
+        imageUrl: post.node.display_url,
+        postUrl: `https://www.instagram.com/p/${post.node.shortcode}`
+      };
+    });
     return postImages;
   }
 
