@@ -24,7 +24,7 @@ function App() {
 
   function fetchInstagramPosts() {
     setLoading(true);
-    instagramScraper.fetchPost('https://www.instagram.com/explore/tags/sustainability/')
+    instagramScraper.fetchPost('https://www.instagram.com/explore/tags/greenstagram2020/')
       .then(res => {
         setPostURLs(res);
         setLoading(false);
@@ -60,16 +60,25 @@ function App() {
 
   // console.log('instagramPostData', instagramPostData); // eslint-disable-line no-console
   return (
-    <div>
-      <ul>
-        {postURLs.map(url => {
-          return (
-            <li>
-              <img src={url} />
-            </li>
-          );
-        })}
-      </ul>
+    <div className="wrapper">
+      <header id="header">
+        <div className="header-content">
+          <h1>Greenstagram</h1>
+          <p>
+            Share your sustainability story!
+          </p>
+          <h3>How It Works:</h3>
+          <ol>
+            <li>Take a picture of how you're promoting sustainability in the world.</li>
+            <li>Share your image on Instagram with #greenstagram2020</li>
+            <li>@mention your friends and brands that you want to take part in our sustainability challenge!</li>
+          </ol>
+        </div>
+      </header>
+    <div id="images">
+        {postURLs.map(url => <InstagramPost url={url} />)}
+
+    </div>
     </div>
   );
 }
