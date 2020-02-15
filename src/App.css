@@ -45,10 +45,21 @@ body {
 }
 
 .image {
+  padding: 20px;
   background-size: cover;
   height: 38em;
   width: 38em; 
   margin: 1rem 0;
   border-radius: 2rem;
+  box-sizing: border-box;
+}
 
+.posted-at {
+  padding: 7px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline;
+  border-radius: 20px;
+  background: black;
 }

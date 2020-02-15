@@ -27,7 +27,7 @@ class InstagramScraper {
         imageUrl: post.node.display_url,
         postUrl: `https://www.instagram.com/p/${post.node.shortcode}`,
         comment: '',
-        postDate: moment(post.node.taken_at_timestamp, 'x').format('MM D YYYY hh:mm'),
+        postDate: moment.unix(post.node.taken_at_timestamp).fromNow(),
         username: '',
       };
     });
