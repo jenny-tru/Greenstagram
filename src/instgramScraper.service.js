@@ -1,4 +1,5 @@
 const axios = require('axios');
+const moment = require('moment');
 
 class InstagramScraper {
   parseSharedDataFromHTML(rawHTML) {
@@ -21,9 +22,13 @@ class InstagramScraper {
     const sharedData = this.parseSharedDataFromHTML(res.data);
     const posts = sharedData.entry_data.TagPage[0].graphql.hashtag.edge_hashtag_to_media.edges;
     const postImages = posts.map(post => {
+      console.log('post.node.taken_at_timestamp', post.node.taken_at_timestamp); // eslint-disable-line no-console
       return {
         imageUrl: post.node.display_url,
-        postUrl: `https://www.instagram.com/p/${post.node.shortcode}`
+        postUrl: `https://www.instagram.com/p/${post.node.shortcode}`,
+        comment: '',
+        postDate: moment(post.node.taken_at_timestamp, 'x').format('MM D YYYY hh:mm'),
+        username: '',
       };
     });
     return postImages;

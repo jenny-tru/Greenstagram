@@ -9,7 +9,9 @@ export function InstagramPost(props) {
   const { post } = props;
   return (
     <a href={post.postUrl} target="_blank">
-      <div className="image" style={{ backgroundImage: `url("${post.imageUrl}")` }} />
+      <div className="image" style={{ backgroundImage: `url("${post.imageUrl}")` }}>
+        <div className="posted-at">{post.postDate}</div>
+      </div>
     </a>
   );
 }
