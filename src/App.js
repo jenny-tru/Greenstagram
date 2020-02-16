@@ -11,12 +11,12 @@ function App() {
   const [error, setError] = useState(null);
 
   function keepFetching() {
-    setInterval(() => {      
-      instagramScraper.fetchPost('https://www.instagram.com/explore/tags/greenstagram2020/')
-        .then(res => {
-          setPosts(res);
-        });
-    }, 5000);
+    // setInterval(() => {
+    //   instagramScraper.fetchPost('https://www.instagram.com/explore/tags/greenstagram2020/')
+    //     .then(res => {
+    //       setPosts(res);
+    //     });
+    // }, 5000);
   }
 
   function fetchInstagramPosts() {
@@ -56,7 +56,7 @@ function App() {
     <div className="wrapper" key="loaded">
       <div id="images">
         <div className="images-container">
-          {posts.map((post, i) => <InstagramPost post={post} key={post} />)}
+          {posts.map((post, i) => <InstagramPost post={post} key={i} />)}
         </div>
       </div>
       <header id="header">
